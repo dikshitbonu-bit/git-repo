@@ -91,3 +91,13 @@ git log -n 5
 Show only the last 5 commits.
 Example: git log -n 5
 ================================================================================
+###Undoing Changes
+
+git restore <file>
+Discard changes in working directory (unstage and revert to last commit).
+Example: git restore file.txt
+
+git restore --staged <file>
+Unstage a file but keep the changes in working directory.
+Example: git restore --staged file.txt
+===============================================================================
