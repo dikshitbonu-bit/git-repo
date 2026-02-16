@@ -101,3 +101,41 @@ git restore --staged <file>
 Unstage a file but keep the changes in working directory.
 Example: git restore --staged file.txt
 ===============================================================================
+###Branching
+
+git branch
+List all local branches in the repository.
+Example: git branch
+
+git branch <branch-name>
+Create a new branch but don't switch to it.
+Example: git branch feature-1
+
+git checkout <branch-name>
+Switch to an existing branch.
+Example: git checkout feature-1
+
+git checkout -b <branch-name>
+Create a new branch and switch to it in one command.
+Example: git checkout -b feature-2
+
+git switch <branch-name>
+Modern command to switch between branches (clearer than checkout).
+Example: git switch main
+
+git switch -c <branch-name>
+Create a new branch and switch to it (modern alternative).
+Example: git switch -c feature-3
+
+git branch -d <branch-name>
+Delete a branch (only if it's been merged).
+Example: git branch -d old-feature
+
+git branch -D <branch-name>
+Force delete a branch even if not merged.
+Example: git branch -D experimental
+
+git merge <branch-name>
+Merge specified branch into current branch.
+Example: git merge feature-1
+================================================================================
