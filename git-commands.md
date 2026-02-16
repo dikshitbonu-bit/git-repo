@@ -1,6 +1,6 @@
 # Git Commands Reference
 
-&gt; A living document of Git commands I'm learning during my DevOps journey.
+ A living document of Git commands I'm learning during my DevOps journey.
 
 ---
 
@@ -269,3 +269,5 @@ git pull origin main
 # View status and log
 git status
 git log --oneline
+
+##### THIS IS A MESSAGE FROM REMOTE REPO FROM GITHUB UI##############
