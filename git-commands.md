@@ -59,4 +59,18 @@ git diff --staged
 Show changes in files that are staged for commit.
 Example: git diff --staged
 ================================================================================
+###Repository Management
+
+ls -la .git/
+Explore the contents of the hidden .git directory.
+Example: ls -la .git/
+
+git rm <file>
+Remove a file from both working directory and staging area.
+Example: git rm oldfile.txt
+
+git mv <old> <new>
+Rename or move a file and stage the change.
+Example: git mv old-name.md new-name.md
+================================================================================
 
