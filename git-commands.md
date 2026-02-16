@@ -139,3 +139,40 @@ git merge <branch-name>
 Merge specified branch into current branch.
 Example: git merge feature-1
 ================================================================================
+##Remote Repositories
+
+git remote add <name> <url>
+Connect your local repo to a remote repository.
+Example: git remote add origin https://github.com/username/repo.git
+
+git remote -v
+View all configured remote repositories.
+Example: git remote -v
+
+git push <remote> <branch>
+Upload your commits to a remote repository.
+Example: git push origin main
+
+git push -u <remote> <branch>
+Push and set upstream tracking (for first push of a branch).
+Example: git push -u origin feature-1
+
+git pull <remote> <branch>
+Fetch changes from remote and merge into current branch.
+Example: git pull origin main
+
+git fetch <remote>
+Download changes from remote but don't merge them.
+Example: git fetch origin
+
+git clone <url>
+Copy a remote repository to your local machine.
+Example: git clone https://github.com/username/repo.git
+
+git push --all
+Push all branches to remote.
+Example: git push --all origin
+
+git remote remove <name>
+Remove a remote connection.
+Example: git remote remove origin
