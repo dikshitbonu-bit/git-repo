@@ -73,4 +73,21 @@ git mv <old> <new>
 Rename or move a file and stage the change.
 Example: git mv old-name.md new-name.md
 ================================================================================
+###Commit History
 
+git log --graph
+Display commit history with an ASCII graph showing branch structure.
+Example: git log --graph
+
+git log --oneline --graph --all
+Compact view of all branches with visual graph.
+Example: git log --oneline --graph --all
+
+git show <commit>
+Show detailed information about a specific commit.
+Example: git show ccc2e47
+
+git log -n 5
+Show only the last 5 commits.
+Example: git log -n 5
+================================================================================
