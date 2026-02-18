@@ -270,4 +270,30 @@ git pull origin main
 git status
 git log --oneline
 
-##########GIT FETCH############
+# Merge Commands
+git merge feature-branch              # Merge (fast-forward if possible)
+git merge --no-ff feature-branch      # Force merge commit
+git merge --squash feature-branch     # Squash all commits into one
+
+# Rebase Commands
+git rebase main                       # Rebase current branch onto main
+git rebase --continue                 # Continue after resolving conflicts
+git rebase --abort                    # Cancel the rebase
+
+# Stash Commands
+git stash push -m "description"       # Stash with message
+git stash list                        # List all stashes
+git stash pop                         # Apply and delete latest stash
+git stash apply stash@{0}             # Apply specific stash (keep it)
+git stash drop stash@{0}              # Delete specific stash
+git stash clear                       # Delete all stashes
+
+# Cherry-Pick Commands
+git cherry-pick abc1234               # Cherry-pick single commit
+git cherry-pick A^..C                 # Cherry-pick range
+git cherry-pick --continue            # Continue after resolving conflicts
+git cherry-pick --abort               # Cancel the cherry-pick
+
+# Visualization
+git log --oneline --graph --all       # Visual commit history
+```
