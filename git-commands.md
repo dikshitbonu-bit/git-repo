@@ -297,3 +297,42 @@ git cherry-pick --abort               # Cancel the cherry-pick
 # Visualization
 git log --oneline --graph --all       # Visual commit history
 ```
+
+# Reset Commands
+git reset --soft HEAD~1
+# Keep changes staged
+
+git reset --mixed HEAD~1
+# Keep changes unstaged (default)
+
+git reset --hard HEAD~1
+# Discard all changes (DESTRUCTIVE)
+
+git reset --hard <commit-hash>
+# Reset to specific commit
+
+# Revert Commands
+git revert <commit-hash>
+# Create new commit that undoes target commit
+
+git revert HEAD
+# Revert last commit
+
+git revert HEAD~3
+# Revert commit 3 steps back
+
+git revert --no-commit <commit-hash>
+# Stage changes without committing
+
+git revert --continue
+# Continue after resolving conflicts
+
+git revert --abort
+# Cancel the revert
+
+# Reflog (Recovery)
+git reflog
+# View all Git operations (safety net)
+
+git reset --hard HEAD@{2}
+# Recover to specific reflog entry
