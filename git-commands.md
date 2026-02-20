@@ -314,7 +314,7 @@ git log --oneline --graph --all       # Visual commit history
 - Command: `git reset --hard HEAD~1`
 - Description: Completely discard commits and all changes (DESTRUCTIVE).
 - Example: `git reset --hard HEAD~1`
-- ⚠️ Warning: This permanently deletes uncommitted work
+-  Warning: This permanently deletes uncommitted work
 
 **Reset to specific commit**
 - Command: `git reset --hard <commit-hash>`
