@@ -1,20 +1,6 @@
 # Git Commands Reference
 
  A living document of Git commands I'm learning during my DevOps journey.
-
----
-
-## Table of Contents
-
-1. [Setup & Config](#1-setup--config)
-2. [Basic Workflow](#2-basic-workflow)
-3. [Viewing Changes](#3-viewing-changes)
-4. [Repository Management](#4-repository-management)
-5. [Commit History](#5-commit-history)
-6. [Undoing Changes](#6-undoing-changes)
-7. [Branching](#7-branching)
-8. [Remote Repositories](#8-remote-repositories)
-
 ---
 
 ## 1. Setup & Config
@@ -374,3 +360,464 @@ git log --oneline --graph --all       # Visual commit history
 - Command: `git reflog show <branch-name>`
 - Description: View reflog history for a specific branch.
 - Example: `git reflog show main`
+
+# GitHub CLI Commands Reference
+
+Manage GitHub directly from your terminal - no browser required.
+
+---
+
+## Authentication
+
+**Login to GitHub**
+- Command: `gh auth login`
+- Description: Authenticate with your GitHub account (supports OAuth, PAT, SSH).
+- Example: `gh auth login`
+
+**Check authentication status**
+- Command: `gh auth status`
+- Description: View current authentication status and logged-in account.
+- Example: `gh auth status`
+
+**Logout**
+- Command: `gh auth logout`
+- Description: Sign out from GitHub CLI.
+- Example: `gh auth logout`
+
+---
+
+## Repository Management
+
+**Create public repository**
+- Command: `gh repo create <name> --public`
+- Description: Create a new public repository.
+- Example: `gh repo create my-project --public --description "My awesome project"`
+
+**Create private repository**
+- Command: `gh repo create <name> --private`
+- Description: Create a new private repository.
+- Example: `gh repo create my-secret-project --private --clone`
+
+**Clone repository**
+- Command: `gh repo clone <owner/repo>`
+- Description: Clone a repository using GitHub CLI.
+- Example: `gh repo clone torvalds/linux`
+
+**View repository details**
+- Command: `gh repo view`
+- Description: Display details about the current repository.
+- Example: `gh repo view`
+
+**View specific repository**
+- Command: `gh repo view <owner/repo>`
+- Description: Display details about any repository.
+- Example: `gh repo view facebook/react`
+
+**Open repository in browser**
+- Command: `gh repo view --web`
+- Description: Open the repository in your default web browser.
+- Example: `gh repo view --web`
+
+**List your repositories**
+- Command: `gh repo list`
+- Description: List all repositories owned by you.
+- Example: `gh repo list --limit 20`
+
+**Delete repository**
+- Command: `gh repo delete <owner/repo>`
+- Description: Delete a repository (requires confirmation).
+- Example: `gh repo delete myusername/old-project --yes`
+
+---
+
+## Issues
+
+**Create issue interactively**
+- Command: `gh issue create`
+- Description: Create a new issue with interactive prompts.
+- Example: `gh issue create`
+
+**Create issue with details**
+- Command: `gh issue create --title "..." --body "..." --label "bug"`
+- Description: Create an issue with title, description, and labels.
+- Example: `gh issue create --title "Login broken" --body "Cannot authenticate" --label "bug"`
+
+**List open issues**
+- Command: `gh issue list`
+- Description: List all open issues in the current repository.
+- Example: `gh issue list`
+
+**List all issues**
+- Command: `gh issue list --state all`
+- Description: List both open and closed issues.
+- Example: `gh issue list --state all`
+
+**Filter issues by label**
+- Command: `gh issue list --label <label>`
+- Description: List issues with a specific label.
+- Example: `gh issue list --label "help wanted"`
+
+**View specific issue**
+- Command: `gh issue view <number>`
+- Description: Display details of a specific issue.
+- Example: `gh issue view 42`
+
+**Open issue in browser**
+- Command: `gh issue view <number> --web`
+- Description: Open an issue in your web browser.
+- Example: `gh issue view 42 --web`
+
+**Close issue**
+- Command: `gh issue close <number>`
+- Description: Close an open issue.
+- Example: `gh issue close 42 --comment "Fixed in PR #43"`
+
+**Reopen issue**
+- Command: `gh issue reopen <number>`
+- Description: Reopen a closed issue.
+- Example: `gh issue reopen 42`
+
+---
+
+## Pull Requests
+
+**Create PR interactively**
+- Command: `gh pr create`
+- Description: Create a pull request with interactive prompts.
+- Example: `gh pr create`
+
+**Create PR with auto-fill**
+- Command: `gh pr create --fill`
+- Description: Auto-populate PR title and body from commit messages.
+- Example: `gh pr create --fill`
+
+**Create PR with details**
+- Command: `gh pr create --title "..." --body "..."`
+- Description: Create a PR with specific title and description.
+- Example: `gh pr create --title "Add feature X" --body "This PR implements feature X"`
+
+**List open PRs**
+- Command: `gh pr list`
+- Description: List all open pull requests.
+- Example: `gh pr list`
+
+**List all PRs**
+- Command: `gh pr list --state all`
+- Description: List both open and closed pull requests.
+- Example: `gh pr list --state all`
+
+**View PR details**
+- Command: `gh pr view <number>`
+- Description: Display details of a specific pull request.
+- Example: `gh pr view 15`
+
+**Open PR in browser**
+- Command: `gh pr view <number> --web`
+- Description: Open a pull request in your web browser.
+- Example: `gh pr view 15 --web`
+
+**Checkout PR locally**
+- Command: `gh pr checkout <number>`
+- Description: Check out a pull request branch to your local machine.
+- Example: `gh pr checkout 15`
+
+**View PR diff**
+- Command: `gh pr diff <number>`
+- Description: View the diff of a pull request.
+- Example: `gh pr diff 15`
+
+**Check PR status**
+- Command: `gh pr checks`
+- Description: View the status of checks/CI for the current PR.
+- Example: `gh pr checks`
+
+**Approve PR**
+- Command: `gh pr review <number> --approve`
+- Description: Approve a pull request.
+- Example: `gh pr review 15 --approve --body "LGTM"`
+
+**Comment on PR**
+- Command: `gh pr review <number> --comment --body "..."`
+- Description: Leave a comment on a pull request.
+- Example: `gh pr review 15 --comment --body "Please add tests"`
+
+**Request changes on PR**
+- Command: `gh pr review <number> --request-changes --body "..."`
+- Description: Request changes on a pull request.
+- Example: `gh pr review 15 --request-changes --body "Fix the typos"`
+
+**Merge PR**
+- Command: `gh pr merge <number>`
+- Description: Merge a pull request (default merge commit).
+- Example: `gh pr merge 15`
+
+**Merge with merge commit**
+- Command: `gh pr merge <number> --merge`
+- Description: Merge using a merge commit.
+- Example: `gh pr merge 15 --merge`
+
+**Squash and merge**
+- Command: `gh pr merge <number> --squash`
+- Description: Squash all commits and merge.
+- Example: `gh pr merge 15 --squash --delete-branch`
+
+**Rebase and merge**
+- Command: `gh pr merge <number> --rebase`
+- Description: Rebase and merge the pull request.
+- Example: `gh pr merge 15 --rebase`
+
+**View your PR status**
+- Command: `gh pr status`
+- Description: Show status of relevant pull requests (yours + assigned reviews).
+- Example: `gh pr status`
+
+---
+
+## GitHub Actions & Workflows
+
+**List workflow runs**
+- Command: `gh run list`
+- Description: List recent workflow runs in the repository.
+- Example: `gh run list --limit 10`
+
+**List runs for specific workflow**
+- Command: `gh run list --workflow=<name>`
+- Description: Filter runs by workflow name.
+- Example: `gh run list --workflow=ci.yml`
+
+**View run details**
+- Command: `gh run view <run-id>`
+- Description: Display details of a specific workflow run.
+- Example: `gh run view 123456`
+
+**View run logs**
+- Command: `gh run view <run-id> --log`
+- Description: Display logs of a workflow run.
+- Example: `gh run view 123456 --log`
+
+**Watch workflow run**
+- Command: `gh run watch`
+- Description: Watch a workflow run in real-time.
+- Example: `gh run watch`
+
+**Rerun workflow**
+- Command: `gh run rerun <run-id>`
+- Description: Rerun a failed or completed workflow.
+- Example: `gh run rerun 123456`
+
+**List workflows**
+- Command: `gh workflow list`
+- Description: List all workflows in the repository.
+- Example: `gh workflow list`
+
+**View workflow details**
+- Command: `gh workflow view <workflow>`
+- Description: Display details of a specific workflow.
+- Example: `gh workflow view ci.yml`
+
+**Trigger workflow manually**
+- Command: `gh workflow run <workflow>`
+- Description: Manually trigger a workflow run.
+- Example: `gh workflow run deploy.yml`
+
+**Enable workflow**
+- Command: `gh workflow enable <workflow>`
+- Description: Enable a disabled workflow.
+- Example: `gh workflow enable ci.yml`
+
+**Disable workflow**
+- Command: `gh workflow disable <workflow>`
+- Description: Disable a workflow.
+- Example: `gh workflow disable old-workflow.yml`
+
+---
+
+## GitHub API
+
+**Make API call**
+- Command: `gh api <endpoint>`
+- Description: Make a raw GitHub API request.
+- Example: `gh api repos/owner/repo/issues`
+
+**Check API rate limit**
+- Command: `gh api rate_limit`
+- Description: View your current API rate limit status.
+- Example: `gh api rate_limit`
+
+**Get user info**
+- Command: `gh api user`
+- Description: Fetch information about the authenticated user.
+- Example: `gh api user`
+
+---
+
+## Gists
+
+**Create gist from file**
+- Command: `gh gist create <file>`
+- Description: Create a new public gist from a file.
+- Example: `gh gist create script.sh`
+
+**Create private gist**
+- Command: `gh gist create --secret <file>`
+- Description: Create a new private (secret) gist.
+- Example: `gh gist create --secret notes.md`
+
+**List your gists**
+- Command: `gh gist list`
+- Description: List all your gists.
+- Example: `gh gist list`
+
+**View gist**
+- Command: `gh gist view <id>`
+- Description: Display a specific gist.
+- Example: `gh gist view abc123def456`
+
+**Edit gist**
+- Command: `gh gist edit <id>`
+- Description: Edit an existing gist.
+- Example: `gh gist edit abc123def456`
+
+**Delete gist**
+- Command: `gh gist delete <id>`
+- Description: Delete a gist.
+- Example: `gh gist delete abc123def456`
+
+---
+
+## Releases
+
+**Create release**
+- Command: `gh release create <tag>`
+- Description: Create a new release.
+- Example: `gh release create v1.0.0`
+
+**Create release with notes**
+- Command: `gh release create <tag> --notes "..."`
+- Description: Create a release with release notes.
+- Example: `gh release create v1.0.0 --notes "First stable release"`
+
+**List releases**
+- Command: `gh release list`
+- Description: List all releases in the repository.
+- Example: `gh release list`
+
+**View release**
+- Command: `gh release view <tag>`
+- Description: Display details of a specific release.
+- Example: `gh release view v1.0.0`
+
+**Download release assets**
+- Command: `gh release download <tag>`
+- Description: Download assets from a release.
+- Example: `gh release download v1.0.0`
+
+**Delete release**
+- Command: `gh release delete <tag>`
+- Description: Delete a release.
+- Example: `gh release delete v1.0.0 --yes`
+
+---
+
+## Search
+
+**Search repositories**
+- Command: `gh search repos <query>`
+- Description: Search for repositories on GitHub.
+- Example: `gh search repos "devops automation" --language=python`
+
+**Search issues**
+- Command: `gh search issues <query>`
+- Description: Search for issues across GitHub.
+- Example: `gh search issues "bug" --state=open`
+
+**Search code**
+- Command: `gh search code <query>`
+- Description: Search code across GitHub repositories.
+- Example: `gh search code "import pandas" --language=python`
+
+**Search users**
+- Command: `gh search users <query>`
+- Description: Search for GitHub users.
+- Example: `gh search users "location:India" --followers=">100"`
+
+---
+
+## Aliases
+
+**Create alias**
+- Command: `gh alias set <name> <command>`
+- Description: Create a shortcut for a frequently-used command.
+- Example: `gh alias set pv "pr view"`
+
+**List aliases**
+- Command: `gh alias list`
+- Description: Display all your configured aliases.
+- Example: `gh alias list`
+
+**Delete alias**
+- Command: `gh alias delete <name>`
+- Description: Remove an alias.
+- Example: `gh alias delete pv`
+
+---
+
+## Useful Flags
+
+**JSON output**
+- Flag: `--json`
+- Description: Output results in JSON format for scripting.
+- Example: `gh pr list --json number,title,author`
+
+**Filter with jq**
+- Flag: `--jq <query>`
+- Description: Filter JSON output using jq syntax.
+- Example: `gh pr list --json number --jq '.[].number'`
+
+**Open in browser**
+- Flag: `--web`
+- Description: Open the resource in your web browser.
+- Example: `gh repo view --web`
+
+**Target specific repo**
+- Flag: `--repo <owner/repo>`
+- Description: Run command on a specific repository.
+- Example: `gh issue list --repo facebook/react`
+
+---
+
+## Quick Reference Cheat Sheet
+```bash
+# Essential workflow
+gh auth login
+gh repo clone owner/repo
+gh pr create --fill
+gh pr list
+gh pr checkout 42
+gh pr merge 42 --squash
+
+# Issues workflow
+gh issue create
+gh issue list --label bug
+gh issue close 15
+
+# CI/CD monitoring
+gh run list
+gh run watch
+gh workflow run deploy.yml
+
+# Quick tasks
+gh repo view --web          # Open repo in browser
+gh pr status                # See your PR status
+gh issue list --assignee @me  # Your assigned issues
+```
+
+---
+
+**Pro Tips:**
+
+- Most commands work without arguments in a repo directory (auto-detects current repo)
+- Use `--json` with `jq` for powerful scripting: `gh pr list --json number,title --jq '.[0]'`
+- `gh pr create --draft` creates a draft PR
+- `gh pr create --fill` saves time by auto-filling from commits
+- Combine with shell commands: `gh issue list --json number | jq '.[].number' | xargs -I {} gh issue close {}`
