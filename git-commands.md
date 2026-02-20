@@ -299,40 +299,78 @@ git log --oneline --graph --all       # Visual commit history
 ```
 
 # Reset Commands
-git reset --soft HEAD~1
-# Keep changes staged
 
-git reset --mixed HEAD~1
-# Keep changes unstaged (default)
+**Reset soft**
+- Command: `git reset --soft HEAD~1`
+- Description: Undo commits but keep changes staged.
+- Example: `git reset --soft HEAD~1`
 
-git reset --hard HEAD~1
-# Discard all changes (DESTRUCTIVE)
+**Reset mixed (default)**
+- Command: `git reset --mixed HEAD~1`
+- Description: Undo commits and unstage changes (keep in working directory).
+- Example: `git reset --mixed HEAD~1`
 
-git reset --hard <commit-hash>
-# Reset to specific commit
+**Reset hard**
+- Command: `git reset --hard HEAD~1`
+- Description: Completely discard commits and all changes (DESTRUCTIVE).
+- Example: `git reset --hard HEAD~1`
+- ⚠️ Warning: This permanently deletes uncommitted work
+
+**Reset to specific commit**
+- Command: `git reset --hard <commit-hash>`
+- Description: Reset repository to a specific commit state.
+- Example: `git reset --hard abc1234`
+
+---
 
 # Revert Commands
-git revert <commit-hash>
-# Create new commit that undoes target commit
 
-git revert HEAD
-# Revert last commit
+**Revert specific commit**
+- Command: `git revert <commit-hash>`
+- Description: Create new commit that undoes changes from target commit (safe for shared branches).
+- Example: `git revert abc1234`
 
-git revert HEAD~3
-# Revert commit 3 steps back
+**Revert last commit**
+- Command: `git revert HEAD`
+- Description: Revert the most recent commit.
+- Example: `git revert HEAD`
 
-git revert --no-commit <commit-hash>
-# Stage changes without committing
+**Revert older commit**
+- Command: `git revert HEAD~3`
+- Description: Revert a commit from 3 steps back in history.
+- Example: `git revert HEAD~3`
 
-git revert --continue
-# Continue after resolving conflicts
+**Revert without committing**
+- Command: `git revert --no-commit <commit-hash>`
+- Description: Stage revert changes without automatically committing.
+- Example: `git revert --no-commit abc1234`
 
-git revert --abort
-# Cancel the revert
+**Continue revert**
+- Command: `git revert --continue`
+- Description: Continue revert process after resolving conflicts.
+- Example: `git revert --continue`
+
+**Abort revert**
+- Command: `git revert --abort`
+- Description: Cancel the revert operation and return to previous state.
+- Example: `git revert --abort`
+
+---
 
 # Reflog (Recovery)
-git reflog
-# View all Git operations (safety net)
 
-git reset --hard HEAD@{2}
-# Recover to specific reflog entry
+**View reflog**
+- Command: `git reflog`
+- Description: View complete history of all Git operations (your safety net for recovery).
+- Example: `git reflog`
+
+**Recover using reflog**
+- Command: `git reset --hard HEAD@{n}`
+- Description: Restore repository to a specific point in reflog history.
+- Example: `git reset --hard HEAD@{2}`
+- Use case: Undo accidental hard reset or recover "lost" commits
+
+**Reflog for specific branch**
+- Command: `git reflog show <branch-name>`
+- Description: View reflog history for a specific branch.
+- Example: `git reflog show main`
